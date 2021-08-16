@@ -23,14 +23,14 @@ use pocketmine\math\Vector3;
 
 class HolderData{
 
-	/** @var Vector3 */
-	public $position;
+    /** @var Vector3 */
+    public $position;
 
-	/** @var string|null */
-	public $custom_name;
+    /** @var string|null */
+    public $custom_name;
 
-	public function __construct(Vector3 $position, ?string $custom_name){
-		$this->position = $position;
-		$this->custom_name = $custom_name;
-	}
+    public function __construct(Vector3 $position, ?string $custom_name){
+        $this->position = $position;
+        $this->custom_name = $custom_name;
+    }
 }
