@@ -1,2 +1,5 @@
-# Bedwars
-A Bedwars Plugin for Pocketmine
+# BedWars
+Bedwars Plugin for Pocketmine
+
+commands:
+not now
