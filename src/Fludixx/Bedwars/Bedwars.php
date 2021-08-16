@@ -67,7 +67,7 @@ class Bedwars extends PluginBase {
 	public static $statsSystem;
 	private $settings = [
 	    'stats' => 'json'
-    ];
+	];
 
 	public function onEnable()
 	{
