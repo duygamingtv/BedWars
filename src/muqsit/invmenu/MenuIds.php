@@ -25,9 +25,9 @@ use muqsit\invmenu\inventories\HopperInventory;
 
 interface MenuIds{
 
-	// This interface exists for backwards compatibility.
+    // This interface exists for backwards compatibility.
 
-	const TYPE_CHEST = ChestInventory::class;
-	const TYPE_DOUBLE_CHEST = DoubleChestInventory::class;
-	const TYPE_HOPPER = HopperInventory::class;
+    const TYPE_CHEST = ChestInventory::class;
+    const TYPE_DOUBLE_CHEST = DoubleChestInventory::class;
+    const TYPE_HOPPER = HopperInventory::class;
 }
