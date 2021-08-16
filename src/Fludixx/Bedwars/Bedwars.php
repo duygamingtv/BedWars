@@ -10,12 +10,7 @@ declare(strict_types=1);
 
 namespace Fludixx\Bedwars;
 
-use Fludixx\Bedwars\command\bedwarsCommand;
-use Fludixx\Bedwars\command\BuildCommand;
-use Fludixx\Bedwars\command\leaveCommand;
-use Fludixx\Bedwars\command\SignCommand;
-use Fludixx\Bedwars\command\StartCommand;
-use Fludixx\Bedwars\command\viewStatsCommand;
+use Fludixx\Bedwars\command\BedWarsCommand;
 use Fludixx\Bedwars\event\BlockEventListener;
 use Fludixx\Bedwars\event\ChatListener;
 use Fludixx\Bedwars\event\EntityDamageListener;
@@ -117,12 +112,7 @@ class Bedwars extends PluginBase {
 
     private function registerCommands() {
         $map = $this->getServer()->getCommandMap();
-        $map->register("bw", new bedwarsCommand());
-        $map->register("leave", new leaveCommand());
-        $map->register("sign", new SignCommand());
-        $map->register("start", new StartCommand());
-        $map->register("stats", new viewStatsCommand());
-        $map->register("bwbuild", new BuildCommand());
+        $map->register("bw", new BedWarsCommand());
     }
 
     private function loadArenas() {
