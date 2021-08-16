@@ -72,7 +72,7 @@ class Bedwars extends PluginBase {
 	public function onEnable()
 	{
         self::$instance = $this;
-		@mkdir($this->getDataFolder());
+		@mkdir($this->getDataFolder(), 0777, true);
 		if(!file_exists($this->getDataFolder()."/mysql.yml")) {
             $mysql = new Config($this->getDataFolder()."/mysql.yml", Config::YAML);
 		    $mysql->setAll([
