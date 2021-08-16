@@ -39,8 +39,8 @@ use pocketmine\utils\Config;
  */
 class Bedwars extends PluginBase {
 
-    const NAME    = "§c- Bedwars -";
-    const PREFIX  = "§7[§cBedwars§7] §f";
+    const NAME    = "§c- BedWars -";
+    const PREFIX  = "§7[§cBedWars§7] §f";
     const JOIN    = "§a[JOIN]";
     const FULL    = "§c[FULL]";
     const RUNNING = "§7[SPECTATE]";
