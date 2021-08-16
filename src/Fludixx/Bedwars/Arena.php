@@ -22,7 +22,7 @@ use pocketmine\Player;
  * This Arena class is an Class that contains infos about an Arena, all Arenas should be converted to this class
  */
 class Arena {
-
+	
 	const STATE_OPEN = 0;
 	const STATE_INUSE = 1;
 
@@ -194,41 +194,41 @@ class Arena {
 		return $this->level->getPlayers();
 	}
 
-    /**
-     * @param bool $state
-     */
+    	/**
+     	* @param bool $state
+     	*/
 	public function setHasGold(bool $state = TRUE) {
-	    $this->hasGold = $state;
-    }
+	    	$this->hasGold = $state;
+	}
+	
+	/**
+     	* @return bool
+     	*/
+    	public function hasGold() : bool {
+	    	return $this->hasGold;
+    	}
 
-    /**
-     * @return bool
-     */
-    public function hasGold() : bool {
-	    return $this->hasGold;
-    }
+    	/**
+     	* @return bool
+     	*/
+    	public function isDuelMap() : bool {
+		return $this->playersProTeam === 1 and $this->teams === 2;
+    	}
 
-    /**
-     * @return bool
-     */
-    public function isDuelMap() : bool {
-        return $this->playersProTeam === 1 and $this->teams === 2;
-    }
+    	/**
+     	* @return int
+     	*/
+    	public function getTimer(): int
+    	{
+        	return $this->timer;
+    	}
 
-    /**
-     * @return int
-     */
-    public function getTimer(): int
-    {
-        return $this->timer;
-    }
-
-    /**
-     * @param int $timer
-     */
-    public function setTimer(int $timer): void
-    {
-        $this->timer = $timer;
-    }
+    	/**
+     	* @param int $timer
+     	*/
+    	public function setTimer(int $timer): void
+    	{
+        	$this->timer = $timer;
+    	}
 
 }
