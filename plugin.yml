@@ -1,9 +1,10 @@
 name: "Bedwars"
-description: "Bedwars Plugin for Pocketmine"
-version: 2.0
-api: [3.0.0]
-author: Fludixx
 main: Fludixx\Bedwars\Bedwars
+author: Fludixx
+api: [3.0.0]
+version: 2.0
+description: "Bedwars Plugin for Pocketmine"
+
 permissions:
   bw.admin:
     description: "Allows the Owner of the Permission to manage Bedwars Arenas"
