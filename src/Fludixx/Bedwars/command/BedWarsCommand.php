@@ -34,7 +34,7 @@ class BedWarsCommand extends Command {
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if(!isset($args[0])){
-            $sender->sendMessage("/bw create <arenaName> [MODE 4*1...]");
+            $sender->sendMessage("type /bw help to get all commands");
             return false;
         }
         if(isset($args[0]) && strtolower($args[0]) == "create" && !isset($args[1])){
