@@ -35,7 +35,7 @@ class ChatListener implements Listener {
                 foreach ($arena->getPlayers() as $splayer) {
                     $bwplayer = Bedwars::$players[$splayer->getName()];
                     if ($bwplayer->getPos() === $player->getPos()) {
-                        $splayer->sendMessage("§e{$splayer->getName()}" . Utils::ColorInt2Color(Utils::teamIntToColorInt($bwplayer->getPos())) . "§f: " . $event->getMessage());
+                        $splayer->sendMessage("§e{$splayer->getName()} " . Utils::ColorInt2Color(Utils::teamIntToColorInt($bwplayer->getPos())) . "§f: " . $event->getMessage());
                     }
                 }
             }
