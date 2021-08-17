@@ -45,7 +45,7 @@ class BlockEventListener implements Listener
                 $player->sendMsg("You reached the limit of Teams for this Arena!");
                 Bedwars::$arenas[$arenadata['mapname']] =
                     new Arena($arenadata['mapname'], (int)$arenadata['ppt'], (int)$arenadata['teams'], $player->getPlayer()->getLevel(), $arenadata['spawns']);
-                Bedwars::getInstance()->getServer()->dispatchCommand($player->getPlayer(), "leave");
+                Bedwars::getInstance()->getServer()->dispatchCommand($player->getPlayer(), "bw leave");
             }
             $player->sendMsg("You placed the Spawn of " . Utils::teamIntToColorInt($spawnid) . ". (Next Team: " . Utils::ColorInt2Color(Utils::teamIntToColorInt
                 ($spawnid + 1)) . ")");
