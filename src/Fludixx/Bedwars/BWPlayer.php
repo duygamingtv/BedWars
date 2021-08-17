@@ -36,17 +36,17 @@ class BWPlayer {
     /** @var int */
     protected $team;
     /** @var string */
-    protected $knocker = NULL;
+    protected $knocker = null;
     /** @var int */
     protected $knockedAt = 0;
     /** @var bool */
-    protected $fuerGold = TRUE;
+    protected $fuerGold = true;
     /** @var array */
     protected $extraData = [];
     /** @var bool */
-    protected $canBuild = FALSE;
+    protected $canBuild = false;
     /** @var bool */
-    protected $isSpectator = FALSE;
+    protected $isSpectator = false;
 
     /**
      * BWPlayer constructor.
@@ -117,7 +117,7 @@ class BWPlayer {
     /**
      * @param bool $isSpectator
      */
-    public function setSpectator($isSpectator = TRUE)
+    public function setSpectator($isSpectator = true)
     {
         $this->isSpectator = $isSpectator;
     }
@@ -242,7 +242,7 @@ class BWPlayer {
     /**
      * @param bool $state
      */
-    public function setForGold(bool $state = TRUE) {
+    public function setForGold(bool $state = true) {
         $this->fuerGold = $state;
     }
 
