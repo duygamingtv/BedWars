@@ -34,11 +34,11 @@ class BedWarsCommand extends Command {
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if(!isset($args[0])){
-            $sender->sendMessage("/bw create [ARENANAME] [MODE 8*1...]");
+            $sender->sendMessage("/bw create <arenaName> [MODE 4*1...]");
             return false;
         }
         if(isset($args[0]) && strtolower($args[0]) == "create" && !isset($args[1])){
-            $sender->sendMessage("/bw create [ARENANAME] [MODE 8*1...]");
+            $sender->sendMessage("/bw create <arenaName> [MODE 4*1...]");
             return false;
         }
         switch (strtolower($args[0])){
@@ -49,11 +49,11 @@ class BedWarsCommand extends Command {
                         $sender->sendMessage(Bedwars::PREFIX."/bw create [ARENANAME] [MODE 8*1...]");
                         return false;
                     } else {
-                        $levelname = $args[0];
-                        $mode = $args[1];
+                        $levelname = $args[1];
+                        $mode = $args[2];
                         $mode = str_replace("x", "*", $mode);
-                        $maxplayers = eval("return ".$args[1].";");
-                        if((int)$args[1][0] > 8) {
+                        $maxplayers = $args[2];//eval("return ".$args[2].";");
+                        if((int)$args[2][0] > 8) {
                             $player->sendMsg("You can't add more than 8 Teams");
                             return false;
                         } else {
@@ -113,18 +113,18 @@ class BedWarsCommand extends Command {
                 break;
             case "setsign":
                 if(($sender->hasPermission("bw.admin") or $sender->isOp()) and $sender instanceof Player){
-                    if(!isset($args[0]) or $args[0] == "help") {
+                    if(!isset($args[1]) or $args[1] == "help") {
                         $sender->sendMessage(Bedwars::PREFIX."/bw setsign <arenaName>");
                         return false;
                     } else {
                         $arenas = Bedwars::$provider->getArenas();
-                        if(!isset($arenas[$args[0]])) {
+                        if(!isset($arenas[$args[1]])) {
                             $sender->sendMessage(Bedwars::PREFIX."Arena not found! Be sure to register it");
                             return false;
                         } else {
                             $sender->sendMessage(Bedwars::PREFIX."Break a Sign");
                             Bedwars::$players[$sender->getName()]->setPos(-11);
-                            Bedwars::$players[$sender->getName()]->setKnocker($args[0]);
+                            Bedwars::$players[$sender->getName()]->setKnocker($args[1]);
                         }
                     }
                 }
