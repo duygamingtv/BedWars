@@ -22,10 +22,10 @@ class ChatListener implements Listener {
         if($player->getPos() !== 0) {
             $arena = Bedwars::$arenas[$event->getPlayer()->getLevel()->getFolderName()];
             $messageArray = explode(" ", $event->getMessage());
-            if(in_array("@all", $messageArray) or $adda = in_array("@a", $messageArray)) {
-                if($adda) {
+            if(in_array("@all", $messageArray) or in_array("@a", $messageArray)) {
+                if(in_array("@a", $messageArray)) {
                     $index = array_search("@a", $messageArray);
-                } else {
+                } elseif(in_array("@all", $messageArray)) {
                     $index = array_search("@all", $messageArray);
                 }
                 unset($messageArray[$index]);
