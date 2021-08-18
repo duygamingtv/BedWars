@@ -98,23 +98,23 @@ class InteractListener implements Listener {
                 $event->getPlayer()->sendDataPacket($form);
                 break;
             case "§cLeave":
-                Bedwars::getInstance()->getServer()->dispatchCommand($event->getPlayer(), "leave");
+                Bedwars::getInstance()->getServer()->dispatchCommand($event->getPlayer(), "bw leave");
                 break;
         }
     }
 
-    public function ondataPacketRecive(DataPacketReceiveEvent $event) {
+    public function onDataPacketReceive(DataPacketReceiveEvent $event) {
         $p = $event->getPacket();
         if($p instanceof ModalFormResponsePacket and $p->formId === 156) {
             $action = json_decode($p->formData);
             $mplayer = Bedwars::$players[$event->getPlayer()->getName()];
             if(!is_null($action)) {
                 if ($action === 1) {
-                    $mplayer->setForGold(FALSE);
-                    $mplayer->sendMsg("You wan't to play §cWITHOUT§f gold");
+                    $mplayer->setForGold(false);
+                    $mplayer->sendMsg("You want to play §cWITHOUT§f gold");
                 } else {
-                    $mplayer->setForGold(TRUE);
-                    $mplayer->sendMsg("You wan't to play §aWITH§f gold");
+                    $mplayer->setForGold(true);
+                    $mplayer->sendMsg("You want to play §aWITH§f gold");
                 }
             }
         }

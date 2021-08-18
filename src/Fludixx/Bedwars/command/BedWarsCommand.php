@@ -94,11 +94,44 @@ class BedWarsCommand extends Command {
                     $player->rmScoreboard($sender->getLevel()->getFolderName());
                     $player->saveTeleport(Bedwars::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
                     $player->setPos(0);
-                    $player->setSpectator(FALSE);
+                    $player->setSpectator(false);
                     $sender->getInventory()->setContents([
                         0 => Item::get(Item::IRON_SWORD)
                     ]);
                     $player->getPlayer()->getArmorInventory()->clearAll();
+                }
+                break;
+            case "join":
+                if($sender instanceof Player) {
+                    if(!isset($args[1])){
+                        $sender->sendMessage(Bedwars::PREFIX."/bw join <arenaName>");
+                        return false;
+                    }
+                    $mplayer = Bedwars::$players[$sender->getName()];
+                    $arena = Bedwars::$arenas[$args[1]];
+                    if($arena->getState() == Arena::STATE_OPEN) {
+                        $mplayer->sendMsg("Teleporting...");
+                        if (count($arena->getPlayers()) < ($arena->getTeams() * $arena->getPlayersProTeam())) {
+                            $randomteam = $mplayer->getRandomTeam($arena);
+                            $mplayer->setTeam($randomteam);
+                            $mplayer->saveTeleport($arena->getLevel()->getSafeSpawn());
+                            $inv = $mplayer->getPlayer()->getInventory();
+                            $inv->clearAll();
+                            $inv->setItem(8, Item::get(Item::CHEST)->setCustomName("§eTeams"));
+                            $inv->setItem(7, Item::get(Item::SLIME_BALL)->setCustomName("§cLeave"));
+                            $inv->setItem(0, Item::get(Item::REDSTONE)->setCustomName("§6Goldvote"));
+                            $arena->broadcast("{$mplayer->getName()} joined!");
+                            return false;
+                        }
+                    }elseif($arena->getState() === Arena::STATE_INUSE) {
+                        $mplayer->sendMsg("Teleporting...");
+                        $inv = $mplayer->getPlayer()->getInventory();
+                        $inv->setItem(0, Item::get(Item::SLIME_BALL)->setCustomName("§cLeave"));
+                        $mplayer->setSpectator();
+                        $mplayer->getPlayer()->setGamemode(3);
+                        $mplayer->saveTeleport($arena->getLevel()->getSafeSpawn());
+                    }
+                    $mplayer->sendMsg("You can't join this Round!");
                 }
                 break;
             case "stats":
@@ -154,12 +187,14 @@ class BedWarsCommand extends Command {
                         TextFormat::RESET . TextFormat::GREEN . "/bw setsign: " . TextFormat::GRAY . "set sign to arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw start: " . TextFormat::GRAY . "start your bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw build: " . TextFormat::GRAY . "enable build or disable build\n".
+                        TextFormat::RESET . TextFormat::GREEN . "/bw join: " . TextFormat::GRAY . "join to bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw leave: " . TextFormat::GRAY . "leave from bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw stats: " . TextFormat::GRAY . "lock your bedwars stats"
                     );
                     return false;
                 } else {
                     $sender->sendMessage(TextFormat::GOLD . TextFormat::BOLD . "BedWars Commands:\n" .
+                        TextFormat::RESET . TextFormat::GREEN . "/bw join: " . TextFormat::GRAY . "join to bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw leave: " . TextFormat::GRAY . "leave from bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw stats: " . TextFormat::GRAY . "lock your bedwars stats"
                     );
