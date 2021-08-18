@@ -18,4 +18,4 @@ Command | Description
 - [Français]() no video
 - [Italiano]() no video
 
-__if you have video write an issue with [VIDEO]__
+__if you have video write an issue with `[VIDEO]` in the title__
