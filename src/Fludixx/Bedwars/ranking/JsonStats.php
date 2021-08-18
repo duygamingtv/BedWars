@@ -17,7 +17,7 @@ use pocketmine\utils\Config;
 class JsonStats implements StatsInterface
 {
 
-    public $config;
+    private $config;
 
     /**
      * JsonStats constructor.
