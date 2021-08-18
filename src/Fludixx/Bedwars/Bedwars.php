@@ -96,7 +96,7 @@ class Bedwars extends PluginBase {
         $this->loadArenas();
         $this->getScheduler()->scheduleRepeatingTask(new BWTask(), 20);
         $this->getScheduler()->scheduleRepeatingTask(new SignTask(), 20);
-        $this->getLogger()->info(self::PREFIX."Bedwars geladen");
+        $this->getLogger()->info(self::PREFIX."Bedwars enable");
         if (!InvMenuHandler::isRegistered())
             InvMenuHandler::register(Bedwars::getInstance());
     }
