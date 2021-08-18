@@ -12,6 +12,7 @@ namespace Fludixx\Bedwars\task;
 
 use Fludixx\Bedwars\Bedwars;
 use pocketmine\level\Position;
+use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\ChangeDimensionPacket;
 use pocketmine\network\mcpe\protocol\PlayStatusPacket;
 use pocketmine\network\mcpe\protocol\types\DimensionIds;
@@ -56,6 +57,25 @@ class removeLoadingScreen extends Task {
             $pk->respawn = true;
             $this->player->sendDataPacket($pk);
             Bedwars::getInstance()->getScheduler()->scheduleDelayedTask(new removeLoadingScreen($this->player), 40);
+            Bedwars::getInstance()->getScheduler()->scheduleDelayedTask(new class($this->player) extends Task{
+
+                public $player;
+
+                public function __construct(Player $player)
+                {
+                    $this->player = $player;
+                }
+
+                /**
+                 * @param int $currentTick
+                 */
+                public function onRun(int $currentTick)
+                {
+                    $this->player->setImmobile(true);
+                    $this->player->teleport(new Vector3($this->player->getX(), $this->player->getY()+2, $this->player->getZ()));
+                    $this->player->setImmobile(false);
+                }
+            }, 3);
         }
     }
 
