@@ -117,7 +117,7 @@ class BWPlayer {
     /**
      * @param bool $isSpectator
      */
-    public function setSpectator($isSpectator = true)
+    public function setSpectator(bool $isSpectator = true)
     {
         $this->isSpectator = $isSpectator;
     }

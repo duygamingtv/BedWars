@@ -44,7 +44,7 @@ class Arena {
     /** @var bool[] */
     private $beds = [];
     /** @var bool */
-    private $hasGold = TRUE;
+    private $hasGold = true;
 
     /**
      * Arena constructor.
@@ -65,9 +65,9 @@ class Arena {
         $this->state = Arena::STATE_OPEN;
         foreach ($spawns as $id => $spawn) {
             $this->spawns[$id] = new Vector3($spawn['x'], $spawn['y'], $spawn['z']);
-            $this->beds[$id] = TRUE;
+            $this->beds[$id] = true;
         }
-        $this->level->setAutoSave(FALSE);
+        $this->level->setAutoSave(false);
     }
 
     /**
@@ -152,9 +152,9 @@ class Arena {
         $this->countdown = 60;
         $this->state = Arena::STATE_OPEN;
         foreach ($this->spawns as $id => $spawn) {
-            $this->beds[$id] = TRUE;
+            $this->beds[$id] = true;
         }
-        $this->level->setAutoSave(FALSE);
+        $this->level->setAutoSave(false);
         $this->setState(Arena::STATE_OPEN);
         Bedwars::getInstance()->getServer()->broadcastMessage(Bedwars::PREFIX."Arena §b".$this->level->getFolderName()."§f is now free!");
     }
@@ -174,7 +174,7 @@ class Arena {
     }
 
     public function destroyBed(int $id) {
-        $this->beds[$id] = FALSE;
+        $this->beds[$id] = false;
         $this->broadcast("The Bed of Team ".Utils::ColorInt2Color(Utils::teamIntToColorInt($id))." was destroyed!");
         $this->level->addSound(new GhastShootSound($this->spawns[$id]));
     }
@@ -197,7 +197,7 @@ class Arena {
     /**
      * @param bool $state
      */
-    public function setHasGold(bool $state = TRUE) {
+    public function setHasGold(bool $state = true) {
         $this->hasGold = $state;
     }
 
