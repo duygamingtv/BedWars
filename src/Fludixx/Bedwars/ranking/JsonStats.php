@@ -1,8 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
 /**
- * Bedwars - StatsInterface.php
+ * Bedwars - JsonStats.php
  * @author Fludixx
  * @license MIT
  */
