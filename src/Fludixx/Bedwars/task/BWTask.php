@@ -112,7 +112,7 @@ class BWTask extends Task {
                             $player->setDisplayName($player->getName());
                             $mplayer->saveTeleport(Bedwars::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
                         } else {
-                            Bedwars::getInstance()->getServer()->dispatchCommand($mplayer->getPlayer(), "leave");
+                            Bedwars::getInstance()->getServer()->dispatchCommand($mplayer->getPlayer(), "bw leave");
                         }
                     }
                     $arena->reset();
