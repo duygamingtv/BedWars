@@ -56,7 +56,7 @@ class removeLoadingScreen extends Task {
             $pk->dimension = DimensionIds::OVERWORLD;
             $pk->respawn = true;
             $this->player->sendDataPacket($pk);
-            Bedwars::getInstance()->getScheduler()->scheduleDelayedTask(new removeLoadingScreen($this->player), 40);
+            Bedwars::getInstance()->getScheduler()->scheduleDelayedTask(new self($this->player), 40);
             Bedwars::getInstance()->getScheduler()->scheduleDelayedTask(new class($this->player) extends Task{
 
                 public $player;
