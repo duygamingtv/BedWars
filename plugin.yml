@@ -3,12 +3,12 @@ main: Fludixx\Bedwars\Bedwars
 author: Fludixx bug fix and improvement by DragKills
 api: [3.0.0]
 version: 2.0
-description: "Bedwars Plugin for Pocketmine"
+description: Bedwars Plugin for Pocketmine
 
 permissions:
   bw.admin:
-    description: "Allows the Owner of the Permission to manage Bedwars Arenas"
+    description: allow the player to edit/create arena
     default: op
   bw.build:
-    description: "Allows the Owner of the Permission to use /bwbuild"
+    description: allow the player to use /bw build
     default: op
