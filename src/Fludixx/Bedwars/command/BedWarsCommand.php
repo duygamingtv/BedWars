@@ -16,6 +16,7 @@ use Fludixx\Bedwars\utils\Utils;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\item\Item;
+use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
@@ -113,6 +114,10 @@ class BedWarsCommand extends Command {
                         return false;
                     }
                     $arena = Bedwars::$arenas[$args[1]];
+                    if($sender->getLevel()->getFolderName() === $arena->getLevel()->getFolderName()){
+                        $sender->sendMessage(Bedwars::PREFIX."You already in BedWars Arena!");
+                        return false;
+                    }
                     if($arena->getState() == Arena::STATE_OPEN) {
                         $mplayer->sendMsg("Teleporting...");
                         if (count($arena->getPlayers()) < ($arena->getTeams() * $arena->getPlayersProTeam())) {
@@ -141,10 +146,16 @@ class BedWarsCommand extends Command {
             case "stats":
                 if($sender instanceof Player) {
                     $stats = Bedwars::$statsSystem->getAll($sender);
-                    foreach ($stats as $name => $vaule) {
-                        if($name[0] !== ':') {
-                            $sender->sendMessage("§a$name: §f$vaule");
-                        }
+                    $data = [];
+                    $data['title'] = "Your Stats";
+                    $data['type'] = "form";
+                    $data['buttons'][] = ['text' => "Submit"];
+                    $packet = new ModalFormRequestPacket();
+                    $packet->formId = 599;
+                    if($stats !== null) {
+                        $data['content'] = "§akills: §f{$stats["kills"]}\n§adeaths: §f{$stats["deaths"]}\n§abeds: §f{$stats["beds"]}\n\n";
+                        $packet->formData = json_encode($data);
+                        $sender->dataPacket($packet);
                     }
                 }
                 break;
@@ -168,7 +179,7 @@ class BedWarsCommand extends Command {
                 break;
             case "start":
                 if($sender->hasPermission("bw.start") and $sender instanceof Player) {
-                    Bedwars::$arenas[$sender->getLevel()->getFolderName()]->setCountdown(10);
+                    Bedwars::$arenas[$sender->getLevel()->getFolderName()]->setCountdown(4);
                 }
                 break;
             case "build":
