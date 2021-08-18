@@ -1,6 +1,6 @@
-name: "Bedwars"
+name: Bedwars
 main: Fludixx\Bedwars\Bedwars
-author: Fludixx
+author: Fludixx bug fix and improvement by DragKills
 api: [3.0.0]
 version: 2.0
 description: "Bedwars Plugin for Pocketmine"
