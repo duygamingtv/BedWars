@@ -108,6 +108,10 @@ class BedWarsCommand extends Command {
                         return false;
                     }
                     $mplayer = Bedwars::$players[$sender->getName()];
+                    if(!isset(Bedwars::$arenas[$args[1]])){
+                        $sender->sendMessage(Bedwars::PREFIX."Arena not found!");
+                        return false;
+                    }
                     $arena = Bedwars::$arenas[$args[1]];
                     if($arena->getState() == Arena::STATE_OPEN) {
                         $mplayer->sendMsg("Teleporting...");

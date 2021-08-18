@@ -46,7 +46,7 @@ class Bedwars extends PluginBase {
     const RUNNING = "§7[SPECTATE]";
     const BLOCKS = [ // Breakable blocks
         Block::SANDSTONE, Block::END_STONE, Block::GLASS,
-        Block::CHEST, Block::IRON_BLOCK, Block::COBWEB
+        Block::CHEST, Block::COBWEB
     ];
 
     /** @var Bedwars */
@@ -68,6 +68,7 @@ class Bedwars extends PluginBase {
     {
         self::$instance = $this;
         @mkdir($this->getDataFolder(), 0777, true);
+        $this->saveDefaultConfig();
         if(!file_exists($this->getDataFolder()."/mysql.yml")) {
             $mysql = new Config($this->getDataFolder()."/mysql.yml", Config::YAML);
             $mysql->setAll([
