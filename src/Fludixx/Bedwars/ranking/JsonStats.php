@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * Bedwars - StatsInterface.php
+ * @author Fludixx
+ * @license MIT
+ */
 
 namespace Fludixx\Bedwars\ranking;
-
 
 use Fludixx\Bedwars\Bedwars;
 use pocketmine\Player;
