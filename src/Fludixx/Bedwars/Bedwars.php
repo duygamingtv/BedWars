@@ -123,15 +123,6 @@ class Bedwars extends PluginBase {
         }
     }
 
-    public static function saveStats() {
-        //wait and i will add this
-    }
-
-    public function onDisable()
-    {
-        self::saveStats();
-    }
-
     public static function getInstance() : Bedwars {
         return self::$instance;
     }
