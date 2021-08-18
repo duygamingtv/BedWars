@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Bedwars - JsonStats.php
  * @author Fludixx
  * @license MIT
  */
+
+declare(strict_types=1);
 
 namespace Fludixx\Bedwars\ranking;
 
