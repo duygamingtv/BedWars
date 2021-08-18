@@ -124,11 +124,7 @@ class Bedwars extends PluginBase {
     }
 
     public static function saveStats() {
-        //$statsSystem = Bedwars::$statsSystem;
-	//if($statsSystem instanceof JsonStats) {
-	   //$statsSystem->config->setAll($statsSystem->stats);
-	   //$statsSystem->config->save();
-        //}
+        //wait and i will add this
     }
 
     public function onDisable()
