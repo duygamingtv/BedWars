@@ -127,5 +127,4 @@ class Bedwars extends PluginBase {
     public static function getInstance() : Bedwars {
         return self::$instance;
     }
-
 }

@@ -47,7 +47,7 @@ class BedWarsCommand extends Command {
                 if(($sender->hasPermission("bw.admin") or $sender->isOp()) and $sender instanceof Player){
                     $player = Bedwars::$players[$sender->getName()];
                     if(!isset($args[0]) or !isset($args[1])) {
-                        $sender->sendMessage(Bedwars::PREFIX."/bw create [ARENANAME] [MODE 8*1...]");
+                        $sender->sendMessage(Bedwars::PREFIX."/bw create <arenaName> [MODE 8*1...]");
                         return false;
                     } else {
                         $levelname = $args[1];
@@ -72,13 +72,13 @@ class BedWarsCommand extends Command {
                                 $sender->getInventory()->setItem(0, Item::get(35, Utils::teamIntToColorInt(1)));
                                 $sender->teleport($level->getSafeSpawn());
                                 $player->sendMsg("Please Place the Blocks to set the Team spawns");
-                                $player->sendMsg("use /leave to go to spawn or leave from setup");
+                                $player->sendMsg("use /bw leave to go to spawn or leave from setup");
                                 Bedwars::$arenas[$player->getPlayer()->getLevel()->getFolderName()] =
                                     new Arena($player->getPlayer()->getLevel()->getFolderName(),
                                         (int)$mode[2], (int)$mode[0], $sender->getLevel(), []);
                                 return true;
                             } else {
-                                $player->sendMsg("Error: 1 Argument must be a Levelname!");
+                                $player->sendMsg("Error: 1 Argument must be a LevelName!");
                                 return false;
                             }
                         }
@@ -152,8 +152,8 @@ class BedWarsCommand extends Command {
                     $data['buttons'][] = ['text' => "Submit"];
                     $packet = new ModalFormRequestPacket();
                     $packet->formId = 599;
-                    if($stats !== null) {
-                        $data['content'] = "§akills: §f{$stats["kills"]}\n§adeaths: §f{$stats["deaths"]}\n§abeds: §f{$stats["beds"]}\n\n";
+                    if ($stats !== null) {
+                        $data['content'] = "\n §aKills: §f{$stats["kills"]}\n §aDeaths: §f{$stats["deaths"]}\n §aBeds: §f{$stats["beds"]}\n\n";
                         $packet->formData = json_encode($data);
                         $sender->dataPacket($packet);
                     }
