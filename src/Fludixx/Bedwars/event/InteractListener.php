@@ -119,5 +119,4 @@ class InteractListener implements Listener {
             }
         }
     }
-
 }

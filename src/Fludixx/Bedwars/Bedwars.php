@@ -16,7 +16,6 @@ use Fludixx\Bedwars\event\ChatListener;
 use Fludixx\Bedwars\event\EntityDamageListener;
 use Fludixx\Bedwars\event\InteractListener;
 use Fludixx\Bedwars\event\PlayerJoinListener;
-use Fludixx\Bedwars\event\TakeItemListener;
 use Fludixx\Bedwars\provider\JsonProvider;
 use Fludixx\Bedwars\provider\ProviderInterface;
 use Fludixx\Bedwars\ranking\JsonStats;
@@ -25,10 +24,6 @@ use Fludixx\Bedwars\task\BWTask;
 use Fludixx\Bedwars\task\SignTask;
 use muqsit\invmenu\InvMenuHandler;
 use pocketmine\block\Block;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\level\Position;
-use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 
