@@ -177,9 +177,13 @@ class BedWarsCommand extends Command {
                     }
                 }
                 break;
+            case "shop":
+                if($sender instanceof Player)
+                    Bedwars::getInstance()->addShop($sender);
+                break;
             case "start":
                 if($sender->hasPermission("bw.start") and $sender instanceof Player) {
-                    Bedwars::$arenas[$sender->getLevel()->getFolderName()]->setCountdown(4);
+                    Bedwars::$arenas[$sender->getLevel()->getFolderName()]->setCountdown(10);
                 }
                 break;
             case "build":
@@ -199,6 +203,7 @@ class BedWarsCommand extends Command {
                 if($sender->hasPermission("bw.admin") || $sender->isOp()){
                     $sender->sendMessage(TextFormat::GOLD . TextFormat::BOLD . "BedWars Commands:\n" .
                         TextFormat::RESET . TextFormat::GREEN . "/bw create: " . TextFormat::GRAY . "create bedwars arena\n".
+                        TextFormat::RESET . TextFormat::GREEN . "/bw shop: " . TextFormat::GRAY . "add bedwars shop\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw setsign: " . TextFormat::GRAY . "set sign to arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw start: " . TextFormat::GRAY . "start your bedwars arena\n".
                         TextFormat::RESET . TextFormat::GREEN . "/bw build: " . TextFormat::GRAY . "enable build or disable build\n".

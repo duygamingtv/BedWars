@@ -50,7 +50,7 @@ class BWTask extends Task {
                     $result = $gold >= 0 ? "§aWith gold" : "§cWithout gold!";
                     $arena->broadcast("Goldvoting has ended");
                     $arena->broadcast("Result: $result");
-                    $arena->setHasGold($gold >= 0 ? TRUE : FALSE);
+                    $arena->setHasGold($gold >= 0 ? true : false);
                 }
                 if($arena->getCountdown() === 0) {
                     $arena->setState(Arena::STATE_INUSE);
@@ -103,13 +103,14 @@ class BWTask extends Task {
                     foreach ($arena->getPlayers() as $player) {
                         $mplayer = Bedwars::$players[$player->getName()];
                         if(!$mplayer->isSpectator()) {
-                            $mplayer->getPlayer()->addTitle("§aYou won!");
+                            $mplayer->getPlayer()->addTitle("§aYou Won!");
                             $mplayer->setPos(0);
                             $player->getInventory()->setContents([
                                 0 => Item::get(Item::IRON_SWORD)
                             ]);
                             $player->getArmorInventory()->clearAll();
                             $player->setDisplayName($player->getName());
+                            $mplayer->rmScoreboard($player->getLevel()->getFolderName());
                             $mplayer->saveTeleport(Bedwars::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
                         } else {
                             Bedwars::getInstance()->getServer()->dispatchCommand($mplayer->getPlayer(), "bw leave");
