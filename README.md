@@ -3,12 +3,13 @@ BedWars Plugin for Pocketmine
 
 Command | Description
 ---|---
+/bw | BedWars Main Command
 /bw help | show the help for BedWars
-/bw        | BedWars main command
 /bw create | create arena
 /bw setsign | set sign for arena
 /bw join | join bedwars arena
 /bw leave | quit from bedwars arena
+/bw stats | show your stats
 /bw build | allow build in server
 
 ## How to setup
