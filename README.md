@@ -6,6 +6,7 @@ Command | Description
 /bw | BedWars Main Command
 /bw help | show the help for BedWars
 /bw create | create arena
+/bw shop | add shop for arena
 /bw setsign | set sign for arena
 /bw join | join bedwars arena
 /bw leave | quit from bedwars arena
