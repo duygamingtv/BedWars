@@ -72,20 +72,19 @@ class ShopListener
 
     public function onTransaction(Player $player, Item $itemClickedOn, Item $itemClickedWith): bool
     {
-        // KATEGORIEN
-        if($itemClickedOn->getCustomName() == f::YELLOW."Schwitzer Kategorie") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."Sweaters Category") {
             $this->plugin->Overview($player);
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."Block Kategorie") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."Block Category") {
             $this->plugin->Bau($player);
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."Rüstungs Kategorie") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."Armors Category") {
             $this->plugin->Battle($player);
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."Kampf Kategorie") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."Combat Category") {
             $this->plugin->Ruestung($player);
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."Spielereien") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."Gadgets") {
             $this->plugin->Extra($player);
         }
 
@@ -100,12 +99,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Spitzhacke".f::RED." 4 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Pickaxe".f::RED." 4 Bronze") {
             $price = $this->setPrice($player, 4, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -117,12 +116,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."16x".f::WHITE." Sandstein".f::RED." 4 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."16x".f::WHITE." Sandstone".f::RED." 4 Bronze") {
             $price = $this->setPrice($player, 4, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -132,12 +131,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."4x".f::WHITE." Sandstein".f::RED." 1 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."4x".f::WHITE." Sandstone".f::RED." 1 Bronze") {
             $price = $this->setPrice($player, 1, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -147,12 +146,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."64x".f::WHITE." Sandstein".f::RED." 16 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."64x".f::WHITE." Sandstone".f::RED." 16 Bronze") {
             $price = $this->setPrice($player, 16, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -162,8 +161,8 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
@@ -177,8 +176,8 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
@@ -192,12 +191,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Schwert - 1".f::GRAY." 1 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Sword - 1".f::GRAY." 1 Iron") {
             $price = $this->setPrice($player, 1, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -209,12 +208,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Rüstung - 1".f::GRAY." 1 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Armor - 1".f::GRAY." 1 Iron") {
             $price = $this->setPrice($player, 1, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -224,12 +223,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Kappe".f::RED." 1 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Cap".f::RED." 1 Bronze") {
             $price = $this->setPrice($player, 1, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -239,12 +238,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Hose".f::RED." 1 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Trousers".f::RED." 1 Bronze") {
             $price = $this->setPrice($player, 1, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -254,12 +253,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Schuhe".f::RED." 1 Bronze") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Shoes".f::RED." 1 Bronze") {
             $price = $this->setPrice($player, 1, Item::BRICK);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -269,12 +268,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Rüstung - 2".f::GRAY." 3 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Armor - 2".f::GRAY." 3 Iron") {
             $price = $this->setPrice($player, 3, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -284,12 +283,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Rüstung - 3".f::GRAY." 7 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Armor - 3".f::GRAY." 7 Iron") {
             $price = $this->setPrice($player, 7, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -299,12 +298,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Schwert - 2".f::GRAY." 3 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Sword - 2".f::GRAY." 3 Iron") {
             $price = $this->setPrice($player, 3, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -316,12 +315,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Schwert - 3".f::GRAY." 8 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Sword - 3".f::GRAY." 8 Iron") {
             $price = $this->setPrice($player, 8, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -333,12 +332,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Bogen - 1".f::GOLD." 4 Gold") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Bow - 1".f::GOLD." 4 Gold") {
             $price = $this->setPrice($player, 4, Item::GOLD_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),250, $itemClickedOn->getCount());
@@ -351,12 +350,12 @@ class ShopListener
                 $player->getInventory()->addItem(Item::get(Item::ARROW,0, 1));
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Enderperle".f::GOLD." 12 Gold") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Enderpearl".f::GOLD." 12 Gold") {
             $price = $this->setPrice($player, 12, Item::GOLD_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),10, $itemClickedOn->getCount());
@@ -368,8 +367,8 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
@@ -381,12 +380,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Feuerzeug".f::GRAY." 5 Eisen") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Lighter".f::GRAY." 5 Iron") {
             $price = $this->setPrice($player, 5, Item::IRON_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -394,12 +393,12 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
-        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Rettungs Platform".f::GOLD." 6 Gold") {
+        if($itemClickedOn->getCustomName() == f::YELLOW."1x".f::WHITE." Rescue Platform".f::GOLD." 6 Gold") {
             $price = $this->setPrice($player, 6, Item::GOLD_INGOT);
             if($price == true) {
                 $item = Item::get($itemClickedOn->getId(),$itemClickedOn->getDamage(), $itemClickedOn->getCount());
@@ -411,8 +410,8 @@ class ShopListener
                 $player->getInventory()->addItem($item);
                 return true;
             } else {
-                $player->sendMessage(f::RED."Nicht genug Ressourcen!");
-                $player->sendPopup(f::RED."Nicht genug Ressourcen");
+                $player->sendMessage(f::RED."Not enough resources!");
+                $player->sendPopup(f::RED."Not enough resources");
                 return false;
             }
         }
