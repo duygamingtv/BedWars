@@ -52,7 +52,7 @@ class Bedwars extends PluginBase implements Listener {
     const RUNNING = "§7[SPECTATE]";
     const BLOCKS = [ // Breakable blocks
         Block::SANDSTONE, Block::END_STONE, Block::GLASS,
-        Block::CHEST, Block::COBWEB
+        Block::CHEST, Block::COBWEB, Block::TNT
     ];
 
     /** @var Bedwars */
