@@ -53,7 +53,7 @@ class BedWarsCommand extends Command {
                         $levelname = $args[1];
                         $mode = $args[2];
                         $mode = str_replace("x", "*", $mode);
-                        $maxplayers = $args[2];//eval("return ".$args[2].";");
+                        $maxplayers = $args[2];//eval("return ".$args[2].";"); use?
                         if((int)$args[2][0] > 8) {
                             $player->sendMsg("You can't add more than 8 Teams");
                             return false;
