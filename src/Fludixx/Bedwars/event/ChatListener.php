@@ -39,7 +39,7 @@ class ChatListener implements Listener {
                     }
                 }
             }
-            $event->setCancelled(TRUE);
+            $event->setCancelled(true);
         }
     }
 
