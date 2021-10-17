@@ -54,13 +54,13 @@ class BlockEventListener implements Listener
             $event->setCancelled(!$player->canBuild());
         } else {
             if (!in_array($event->getBlock()->getId(), Bedwars::BLOCKS))
-                $event->setCancelled(TRUE);
+                $event->setCancelled(true);
             $pos = $event->getBlock()->asVector3();
             $pos->y -= 2;
             $tile = $event->getBlock()->getLevel()->getTile($pos);
             if ($tile instanceof Sign) {
                 $player->sendMsg("You can't place blocks there");
-                $event->setCancelled(TRUE);
+                $event->setCancelled(true);
             }
         }
     }
@@ -72,12 +72,12 @@ class BlockEventListener implements Listener
         if ($pos === 0) {
             $event->setCancelled(!$player->canBuild());
         } else if ($pos < 0) {
-            $event->setCancelled(TRUE);
+            $event->setCancelled(true);
             $event->getBlock()->getLevel()->addParticle(new DestroyBlockParticle($event->getBlock()->asVector3(), $event->getBlock()));
             if ($pos === -11 and $event->getBlock() instanceof SignPost) {
                 $sign = $event->getBlock()->getLevel()->getTile($event->getBlock()->asVector3());
                 if ($sign instanceof Sign) {
-                    $event->setCancelled(TRUE);
+                    $event->setCancelled(true);
                     $sign->setText(Bedwars::NAME,
                         $player->getKnocker(),
                         "§a? §7/ §c" . (Bedwars::$arenas[$player->getKnocker()]->getPlayersProTeam() *
@@ -91,7 +91,7 @@ class BlockEventListener implements Listener
                 $color = $tile->getColor();
                 $team = Utils::ColorIntToTeamInt($color);
                 if ($team === $pos) {
-                    $event->setCancelled(TRUE);
+                    $event->setCancelled(true);
                     $player->sendMsg("You can't break your own Bed!");
                     $player->setVaule("ttbb", $player->getVaule("ttbb") + 1);
                     if ((int)$player->getVaule("ttbb") > 5) {
@@ -107,7 +107,7 @@ class BlockEventListener implements Listener
                     $tile->getLevel()->addParticle(new DustParticle($tile->asVector3(), 255, 255, 255));
                 }
             } else if (!in_array($event->getBlock()->getId(), Bedwars::BLOCKS))
-                $event->setCancelled(TRUE);
+                $event->setCancelled(true);
         }
     }
 
