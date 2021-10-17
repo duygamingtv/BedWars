@@ -53,7 +53,7 @@ class BedWarsCommand extends Command {
                         $levelname = $args[1];
                         $mode = $args[2];
                         $mode = str_replace("x", "*", $mode);
-                        $maxplayers = $args[2];//eval("return ".$args[2].";"); use?
+                        $maxplayers = $args[2];
                         if((int)$args[2][0] > 8) {
                             $player->sendMsg("You can't add more than 8 Teams");
                             return false;
@@ -73,9 +73,7 @@ class BedWarsCommand extends Command {
                                 $sender->teleport($level->getSafeSpawn());
                                 $player->sendMsg("Please Place the Blocks to set the Team spawns");
                                 $player->sendMsg("use /bw leave to go to spawn or leave from setup");
-                                Bedwars::$arenas[$player->getPlayer()->getLevel()->getFolderName()] =
-                                    new Arena($player->getPlayer()->getLevel()->getFolderName(),
-                                        (int)$mode[2], (int)$mode[0], $sender->getLevel(), []);
+                                Bedwars::$arenas[$player->getPlayer()->getLevel()->getFolderName()] = new Arena($player->getPlayer()->getLevel()->getFolderName(), $mode[2], $mode[0], $sender->getLevel(), []);
                                 return true;
                             } else {
                                 $player->sendMsg("Error: 1 Argument must be a LevelName!");
@@ -153,7 +151,7 @@ class BedWarsCommand extends Command {
                     $packet = new ModalFormRequestPacket();
                     $packet->formId = 599;
                     if ($stats !== null) {
-                        $data['content'] = "\n §aKills: §f{$stats["kills"]}\n §aDeaths: §f{$stats["deaths"]}\n §aBeds: §f{$stats["beds"]}\n\n";
+                        $data['content'] = "\n §aKills: §f{$stats["kills"]}\n\n §aDeaths: §f{$stats["deaths"]}\n\n §aBeds breaked: §f{$stats["beds"]}\n\n";
                         $packet->formData = json_encode($data);
                         $sender->dataPacket($packet);
                     }
