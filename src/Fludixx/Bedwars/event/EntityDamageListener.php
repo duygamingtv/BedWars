@@ -383,7 +383,7 @@ class EntityDamageListener implements Listener {
 
     public function onHunger(PlayerExhaustEvent $event) {
         $event->getPlayer()->setFood(20);
-        $event->setCancelled(true);
+        $event->setCancelled();
     }
 
 }
