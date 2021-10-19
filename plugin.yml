@@ -9,9 +9,6 @@ permissions:
   bw.admin:
     description: allow the player to edit/create arena
     default: op
-  bw.build:
-    description: allow the player to use /bw build
-    default: op
   bw.start:
     description: allow player to start arena
     default: op
