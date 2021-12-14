@@ -1,5 +1,5 @@
 # Note Im Not Gonna Update it to pm4 cuz im using eskobe now
-<a href="https://github.com/MCPE357/EskoBE.git>EskoBE</a>
+<a href="https://github.com/MCPE357/EskoBE.git">EskoBE</a>
 # BedWars
 BedWars Plugin for Pocketmine
 
