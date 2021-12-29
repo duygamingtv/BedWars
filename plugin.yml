@@ -1,8 +1,8 @@
 name: Bedwars
 main: Fludixx\Bedwars\Bedwars
 author: Fludixx bug fix and improvement by DragKills
-api: [3.0.0]
-version: 3.0
+api: [4.0.0]
+version: 4.0
 description: Bedwars Plugin for Pocketmine
 
 permissions:
